@@ -1,0 +1,3 @@
+.card {
+  @apply rounded-md flex flex-col w-[18vw] h-[162px] bg-white mx-4 my-5 text-[#303F60];
+}

@@ -1,0 +1,17 @@
+.top-container {
+  --bg-color2: transparent linear-gradient(248deg, #303f60 0%, #1a253c 100%) 0%
+    0% no-repeat padding-box;
+  /* height: 40vh;
+  background: var(--bg-color2); */
+}
+
+.bottom-container {
+  /* --bg-color1: #edf6ff 0% 0% no-repeat padding-box;
+  background: var(--bg-color1);
+  height: 60vh; */
+}
+
+.login-button {
+  background: hsla(206, 100%, 63%, 0.2) 0% 0% no-repeat padding-box;
+  @apply py-2 px-8 my-6 mr-16 rounded border border-dodger-blue-500 text-base text-white;
+}

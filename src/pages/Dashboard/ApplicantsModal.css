@@ -1,0 +1,18 @@
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  @apply w-full h-full absolute top-0 left-0;
+}
+
+.modal {
+  min-height: 50vh;
+  max-height: 79vh;
+  width: 48vw;
+  transform: translate(-50%, -50%);
+  @apply rounded-3xl bg-white flex flex-col fixed top-2/4 left-2/4;
+}
+
+.container {
+  background-color: #a9afbc;
+  overflow-y: auto;
+  @apply flex;
+}
