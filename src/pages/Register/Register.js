@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleUserLogin } from 'redux/auth/auth.actions'
@@ -11,7 +11,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [email, setEmail] = useState('')
   const [skills, setSkills] = useState('')
-  const [userRole, setUserRole] = useState()
+  const [userRole, setUserRole] = useState('0')
   const handleChange = (e) => {
     const { name, value } = e.target
     console.log(name, value)
@@ -62,67 +62,69 @@ const Register = () => {
       })
       .catch((error) => alert('Something went wrong!'))
   }
+
+  useEffect(() => {
+    console.log(userRole)
+  }, [userRole])
+
   return (
-    <div className="bg-white text-black register-popup">
-      <header className="header">Signup</header>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center mt-6 mx-7"
-      >
-        <div className="flex flex-col">
+    <div className="register-popup">
+      <header className="form-header">Signup</header>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="user-role-container">
           <label className="label" htmlFor="userRole">
             I'm a*
           </label>
-          <section className="flex flex-row">
-            {userRole === 0 ? (
+          <section className="role-choice-container">
+            {userRole === '0' ? (
               <button
-                className="active-button"
+                className="active button margin-right"
                 type="button"
                 onClick={(e) => {
                   setUserRole(e.target.value)
                 }}
-                value={0}
+                value={'0'}
               >
                 Recruiter
               </button>
             ) : (
               <button
-                className="button"
+                className="button margin-right"
                 type="button"
                 onClick={(e) => {
                   setUserRole(e.target.value)
                 }}
-                value={0}
+                value={'0'}
               >
                 Recruiter
               </button>
             )}
-            {userRole === 1 ? (
+            {userRole === '1' ? (
               <button
-                className="active-button"
+                className="active button margin-right"
                 type="button"
                 onClick={(e) => {
                   setUserRole(e.target.value)
                 }}
-                value={1}
+                value={'1'}
               >
                 Candidate
               </button>
             ) : (
               <button
-                className="button"
+                className="button margin-right"
                 type="button"
                 onClick={(e) => {
                   setUserRole(e.target.value)
                 }}
-                value={1}
+                value={'1'}
               >
                 Candidate
               </button>
             )}
           </section>
         </div>
-        <section className="flex flex-col w-full items-start ">
+        <section className="input-container margin-top">
           <label className="label" htmlFor="fullName">
             Full Name*
           </label>
@@ -135,7 +137,7 @@ const Register = () => {
             value={fullName}
           />
         </section>
-        <section className="flex flex-col w-full items-start ">
+        <section className="input-container">
           <label className="label" htmlFor="emailAddress">
             Email Address*
           </label>
@@ -148,8 +150,8 @@ const Register = () => {
             value={email}
           />
         </section>
-        <div className="flex">
-          <section className="flex flex-col w-full items-start ">
+        <div className="password-container">
+          <section className="input-container inline margin-right">
             <label className="label" htmlFor="password">
               Create Password*
             </label>
@@ -162,7 +164,7 @@ const Register = () => {
               value={password}
             />
           </section>
-          <section className="flex flex-col w-full items-start ">
+          <section className="input-container inline">
             <label className="label" htmlFor="confirmPassword">
               Confirm your password*
             </label>
@@ -176,7 +178,7 @@ const Register = () => {
             />
           </section>
         </div>
-        <section className="flex flex-col w-full items-start ">
+        <section className="input-container">
           <label className="label" htmlFor="skills">
             Skills
           </label>
@@ -189,16 +191,16 @@ const Register = () => {
             value={skills}
           />
         </section>
-        <button className="submit active-button" type="submit">
+        <button className="submit active button" type="submit">
           Signup
         </button>
+        <div className="footer">
+          Have an account?{' '}
+          <Link to="/login" className="color-highlight margin-5">
+            Login
+          </Link>
+        </div>
       </form>
-      <div className="footer">
-        Have an account?{' '}
-        <Link to="/login" className="ml-1 text-dodger-blue-500">
-          Login
-        </Link>
-      </div>
     </div>
   )
 }

@@ -11,14 +11,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --bg-color1: #edf6ff;
-  --bg-color2: #2d3c5b;
-  background: linear-gradient(
-    to bottom,
-    var(--bg-color2) 0%,
-    var(--bg-color2) 40%,
-    var(--bg-color1) 40%,
-    var(--bg-color1) 100%
-  );
+  --bg-color2: #303f60;
+  background-color: var(--bg-color1);
 }
 
 code {

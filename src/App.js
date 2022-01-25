@@ -20,21 +20,19 @@ const PostJob = React.lazy(() => import('pages/PostJob/PostJob'))
 const App = () => {
   store.subscribe(() => console.log(store.getState()))
   return (
-    <Header>
-      <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader />}>
+      <Header>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/forgot-password" component={ForgotPassword} />
-          <Route exact path="/reset-password" component={ResetPassword} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/post-job" component={PostJob} />
-          {/* <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/post-job" component={PostJob} /> */}
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <Route path="/reset-password" component={ResetPassword} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/post-job" component={PostJob} />
         </Switch>
-      </Suspense>
-    </Header>
+      </Header>
+    </Suspense>
   )
 }
 

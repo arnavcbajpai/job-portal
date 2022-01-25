@@ -1,76 +1,113 @@
 .register-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  width: 38.68vw;
-  height: 79vh;
-  overflow-y: auto;
-  @apply rounded-3xl;
+  width: 557px;
+  height: 711px;
+  border-radius: 20px;
+  background-color: white;
+  color: #303f60;
 }
 
-.header {
-  text-align: left;
-  font-size: 2.45vh;
-  line-height: 3vh;
-  letter-spacing: 0px;
-  color: #303f60;
-  @apply pl-[2.08vw] pt-[3.33vh];
+.form-header {
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 29px 30px;
+}
+
+.user-role-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  margin-top: 0px;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.margin-top {
+  margin-top: 20px;
 }
 
 .label {
   text-align: left;
   font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0px;
   color: #303f60;
   opacity: 1;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
 .input {
-  background: #e8e8e833 0% 0% no-repeat padding-box;
+  background: #e8e8e833;
   border: 1px solid #c6c6c6;
   border-radius: 5px;
   width: 100%;
-  @apply mt-2 h-11 pl-4 mb-5;
+  height: 46px;
 }
 
-.input:active {
-  outline-color: #43afff;
+.input:focus {
+  border-color: #43afff;
+  outline: none;
 }
 
-.forgot-password {
-  text-align: right;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0px;
-  color: #43afff;
-  opacity: 1;
-  @apply absolute top-0 right-0;
+.role-choice-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
 }
 
 .button {
-  background: #fff 0% 0% no-repeat padding-box;
+  background: #e8e8e833;
   border: 1px solid #c6c6c6;
   border-radius: 5px;
   opacity: 1;
-  @apply px-14 py-3 text-black;
+  width: 136px;
+  height: 46px;
 }
 
-.active-button {
+.active {
   background: #43afff 0% 0% no-repeat padding-box;
   border: 1px solid #43afff;
-  border-radius: 5px;
-  opacity: 1;
-  @apply px-14 py-3 text-white;
+  color: white;
+}
+
+.margin-right {
+  margin-right: 20px;
 }
 
 .submit {
-  @apply my-5 px-14 py-3 text-white;
+  margin-top: 11px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer {
   font-size: 16px;
-  line-height: 19px;
-  @apply mt-8 w-full flex justify-center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.margin-5 {
+  margin-left: 5px;
 }

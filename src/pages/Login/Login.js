@@ -38,13 +38,10 @@ const Login = ({ handleUserLogin, auth }) => {
   return auth?.isLoggedIn ? (
     <Redirect to="/dashboard" />
   ) : (
-    <div className="bg-white text-black login-popup">
-      <header className="header">Login</header>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center mt-6 mx-7"
-      >
-        <section className="flex flex-col w-full items-start ">
+    <div className="login-popup">
+      <header className="form-header">Login</header>
+      <form onSubmit={handleSubmit} className="form">
+        <section className="input-container">
           <label htmlFor="email" className="label">
             Email address
           </label>
@@ -57,7 +54,7 @@ const Login = ({ handleUserLogin, auth }) => {
             className="input"
           />
         </section>
-        <section className="relative flex flex-col w-full items-start">
+        <section className="relative input-container">
           <label htmlFor="password" className="label">
             Password
           </label>
@@ -76,13 +73,15 @@ const Login = ({ handleUserLogin, auth }) => {
         <button type="submit" className="submit-button">
           Login
         </button>
+        <div>
+          <span className="footer">
+            New to MyJobs?
+            <Link to="/register" className="color-highlight margin-5">
+              Create an account
+            </Link>
+          </span>
+        </div>
       </form>
-      <div>
-        <Link to="/register" className="footer">
-          New to MyJobs?
-          <span className="text-dodger-blue-500 ml-1">Create an account</span>
-        </Link>
-      </div>
     </div>
   )
 }
