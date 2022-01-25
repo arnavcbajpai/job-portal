@@ -3,18 +3,41 @@ import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleUserLogin } from 'redux/auth/auth.actions'
 import { loginAPI } from 'constants/api'
-import './Login.css'
 import { selectAuth } from 'redux/auth/auth.selector'
+import { emailRegex, passwordRegex } from 'constants/constants'
+import './Login.css'
+import { useEffect } from 'react'
+import Input from 'components/Input/Input'
 
 const Login = ({ handleUserLogin, auth }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
+  useEffect(() => console.log(emailError), [emailError])
   const handleChange = (e) => {
+    console.log('onChange triggered falsely!!')
     const { name, value } = e.target
-    name === 'email' ? setEmail(value) : setPassword(value)
+    if (name === 'email') {
+      setEmail(value)
+      if (emailRegex.test(value)) {
+        setEmailError(false)
+      } else {
+        console.log('Here', emailRegex.test(value), value)
+        setEmailError(true)
+      }
+    } else {
+      console.log('Here', emailRegex.test(value))
+      setPassword(value)
+      if (passwordRegex.test(value)) {
+        setPasswordError(false)
+      } else setPasswordError(true)
+    }
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (email && !emailError) setEmailError(true)
+    if (password && !passwordError) setPasswordError(true)
     const apiRequestBody = {
       email,
       password,
@@ -42,29 +65,27 @@ const Login = ({ handleUserLogin, auth }) => {
       <header className="form-header">Login</header>
       <form onSubmit={handleSubmit} className="form">
         <section className="input-container">
-          <label htmlFor="email" className="label">
-            Email address
-          </label>
-          <input
+          <Input
+            label="Email Address"
             value={email}
             onChange={handleChange}
             name="email"
             type="email"
             placeholder="Enter your email"
             className="input"
+            error={emailError}
           />
         </section>
         <section className="relative input-container">
-          <label htmlFor="password" className="label">
-            Password
-          </label>
-          <input
+          <Input
+            label="Password"
             value={password}
             onChange={handleChange}
             name="password"
             type="password"
             placeholder="Enter your password"
             className="input"
+            error={passwordError}
           />
           <Link to="/forgot-password" className="forgot-password">
             Forgot Your Password?

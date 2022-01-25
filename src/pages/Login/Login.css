@@ -4,6 +4,7 @@
   border-radius: 20px;
   background-color: white;
   color: #303f60;
+  filter: drop-shadow(0px 10px 36px #557da526);
 }
 
 .form-header {
@@ -30,28 +31,6 @@
   margin-top: 0px;
 }
 
-.label {
-  text-align: left;
-  font-size: 14px;
-  color: #303f60;
-  opacity: 1;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.input {
-  background: #e8e8e833;
-  border: 1px solid #c6c6c6;
-  border-radius: 5px;
-  width: 100%;
-  height: 46px;
-}
-
-.input:focus {
-  border-color: #43afff;
-  outline: none;
-}
-
 .relative {
   position: relative;
 }
@@ -72,6 +51,8 @@
   opacity: 1;
   width: 136px;
   height: 46px;
+  font-size: 16px;
+  margin-top: 15px;
 }
 
 .footer {
@@ -79,6 +60,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 43px;
 }
 

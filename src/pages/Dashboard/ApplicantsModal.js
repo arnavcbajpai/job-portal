@@ -12,7 +12,7 @@ const ApplicantsModal = ({ jobApplicants, setIsApplicantModalActive }) => {
         <hr />
         <section className="flex flex-col">
           <p>Total {jobApplicants.length} applicants</p>
-          <div className="container">
+          <div className="popup-container">
             {jobApplicants.length > 0 ? (
               jobApplicants.map(({ email, name, skills, id }) => (
                 <div className="card" key={id}>

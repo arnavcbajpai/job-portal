@@ -9,8 +9,6 @@ import { useLocation } from 'react-router-dom'
 const Header = ({ auth, children }) => {
   const [logOutOptionActive, setLogOutOptionActive] = useState(false)
   const location = useLocation()
-  const pixelRatio = 1440 / window.innerWidth
-  console.log(location.pathname)
 
   return (
     <div className="container">

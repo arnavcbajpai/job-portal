@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Header from 'pages/Header/Header'
 import PrivateRoute from 'PrivateRoute'
-import Loader from 'components/Loader'
+import Loader from 'components/Loader/Loader'
 import { store } from 'redux/store'
 
 const HomePage = React.lazy(() => import('pages/HomePage/HomePage'))

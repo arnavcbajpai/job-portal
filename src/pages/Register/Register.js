@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { handleUserLogin } from 'redux/auth/auth.actions'
 import { registerAPI } from 'constants/api'
 import './Register.css'
+import Input from 'components/Input/Input'
 
 const Register = () => {
   const [fullName, setFullName] = useState('')
@@ -14,7 +15,6 @@ const Register = () => {
   const [userRole, setUserRole] = useState('0')
   const handleChange = (e) => {
     const { name, value } = e.target
-    console.log(name, value)
 
     switch (name) {
       case 'fullName':
@@ -55,10 +55,10 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         handleUserLogin({
           data,
         })
+        window.location.assign('/')
       })
       .catch((error) => alert('Something went wrong!'))
   }
@@ -125,10 +125,8 @@ const Register = () => {
           </section>
         </div>
         <section className="input-container margin-top">
-          <label className="label" htmlFor="fullName">
-            Full Name*
-          </label>
-          <input
+          <Input
+            label="Full Name*"
             className="input"
             type="text"
             name="fullName"
@@ -138,10 +136,8 @@ const Register = () => {
           />
         </section>
         <section className="input-container">
-          <label className="label" htmlFor="emailAddress">
-            Email Address*
-          </label>
-          <input
+          <Input
+            label="Email Address*"
             className="input"
             type="email"
             name="emailAddress"
@@ -152,10 +148,8 @@ const Register = () => {
         </section>
         <div className="password-container">
           <section className="input-container inline margin-right">
-            <label className="label" htmlFor="password">
-              Create Password*
-            </label>
-            <input
+            <Input
+              label="Create Password*"
               className="input"
               type="password"
               name="password"
@@ -165,10 +159,8 @@ const Register = () => {
             />
           </section>
           <section className="input-container inline">
-            <label className="label" htmlFor="confirmPassword">
-              Confirm your password*
-            </label>
-            <input
+            <Input
+              label="Confirm Your Password*"
               className="input"
               type="password"
               name="confirmPassword"
@@ -179,10 +171,8 @@ const Register = () => {
           </section>
         </div>
         <section className="input-container">
-          <label className="label" htmlFor="skills">
-            Skills
-          </label>
-          <input
+          <Input
+            label="Skills"
             className="input"
             type="text"
             name="skills"

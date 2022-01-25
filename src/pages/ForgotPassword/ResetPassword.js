@@ -3,8 +3,10 @@ import { resetPasswordTokenAPI } from 'constants/api'
 import { selectPasswordResetToken } from 'redux/auth/auth.selector'
 import { connect } from 'react-redux'
 import './ResetPassword.css'
+import Input from 'components/Input/Input'
 
 const ResetPassword = ({ passwordResetToken }) => {
+  console.log('Token -> ', passwordResetToken)
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const handlePasswordChange = (e) => {
@@ -34,14 +36,12 @@ const ResetPassword = ({ passwordResetToken }) => {
       .catch((error) => console.log(error))
   }
   return (
-    <div className="bg-white text-black reset-password-popup">
-      <header className="header">Reset Your Password</header>
+    <div className="reset-password-popup">
+      <header className="form-header">Reset Your Password</header>
       <p className="message">Enter your new password below</p>
-      <section className="flex flex-col mt-6 mx-7">
-        <label className="label" htmlFor="password">
-          New password
-        </label>
-        <input
+      <section className="input-container">
+        <Input
+          label="New Password"
           className="input"
           type="password"
           name="password"
@@ -49,10 +49,10 @@ const ResetPassword = ({ passwordResetToken }) => {
           value={password}
           placeholder="Enter your password"
         />
-        <label className="label" htmlFor="confirmPassword">
-          Confirm new password
-        </label>
-        <input
+      </section>
+      <section className="input-container">
+        <Input
+          label="Confirm New Password"
           className="input"
           type="password"
           name="confirmPassword"
@@ -62,7 +62,7 @@ const ResetPassword = ({ passwordResetToken }) => {
         />
       </section>
       <div className="footer">
-        <button className="submit button" onClick={handleSubmit}>
+        <button className="submit-button" onClick={handleSubmit}>
           Reset
         </button>
       </div>
